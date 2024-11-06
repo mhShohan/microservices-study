@@ -5,14 +5,14 @@
       "routes": [
         {
           "path": "/products",
-          "method": [
+          "methods": [
             "get",
             "post"
           ]
         },
         {
           "path": "/products/:id",
-          "method": [
+          "methods": [
             "get"
           ]
         }
@@ -23,13 +23,13 @@
       "routes": [
         {
           "path": "/inventories/:id",
-          "method": [
+          "methods": [
             "put"
           ]
         },
         {
           "path": "/inventories/:id/details",
-          "method": [
+          "methods": [
             "get"
           ]
         }

@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
+import { configureRoutes } from './utils'
 
 const app = express()
 dotenv.config()
@@ -36,7 +37,7 @@ const PORT = process.env.PORT || 8081
 const serviceName = process.env.SERVICE_NAME || 'service_name'
 
 // routes
-
+configureRoutes(app)
 
 // health route
 app.get('/health', (_req, res) => {
