@@ -5,10 +5,19 @@ import axios from "axios";
 const createRequestHandler = (hostName: string, path: string, method: string) => {
   return async (req: Request, res: Response) => {
     try {
+
+      let url = `${hostName}${path}`
+      req.params && Object.keys(req.params).forEach(param => {
+        url = url.replace(`:${param}`, req.params[ param ])
+      })
+
       const { data } = await axios({
         method,
-        url: `${hostName}${path}`,
-        data: req.body
+        url,
+        data: req.body,
+        headers: {
+          origin: 'http://localhost:8081'
+        }
       })
 
       return res.status(data.statusCode).json({
