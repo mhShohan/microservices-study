@@ -1,21 +1,38 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import morgan from 'morgan'
-import cors from 'cors'
+import express, { Application, RequestHandler } from 'express';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import cors from 'cors';
 
-const app = express()
-dotenv.config()
+const app: Application = express();
+dotenv.config();
 
-app.use(express.json())
-app.use(cors())
-app.use(morgan('dev'))
+app.use(express.json());
+app.use(cors());
+app.use(morgan('dev'));
 
 // environment variables
-const PORT = process.env.PORT || 4000
-const serviceName = process.env.SERVICE_NAME || 'service_name'
+const PORT = process.env.PORT || 4002;
+const serviceName = process.env.SERVICE_NAME || 'inventory-service';
 
-// routes
+// allowedOrigins middleware
+// app.use((req, res, next) => {
+//   const allowedOrigins = [ 'http://localhost:8081', 'http://127.0.0.1:8081' ]
+//   const origin = req.headers.origin || ''
 
+//   if (allowedOrigins.includes(origin)) {
+//     res.setHeader('Access-Control-Allow-origin', origin)
+//     next()
+//   }
+
+//   res.status(403).json({
+//     status: 'failure',
+//     statusCode: 403,
+//     success: false,
+//     message: 'Forbidden'
+//   })
+// })
+
+// routes will be added here
 
 // health route
 app.get('/health', (_req, res) => {
@@ -23,10 +40,9 @@ app.get('/health', (_req, res) => {
     status: 'success',
     statusCode: 200,
     success: true,
-    message: `${serviceName} is UP now!`
-  })
-})
-
+    message: `${serviceName} is UP now!`,
+  });
+});
 
 // not Found
 app.use((_req, res) => {
@@ -34,22 +50,23 @@ app.use((_req, res) => {
     status: 'failure',
     statusCode: 404,
     success: false,
-    message: '404! Not Found.'
-  })
-})
+    message: '404! Not Found.',
+  });
+});
 
 // error handler
 app.use((err, _req, res, _next) => {
+  console.log(err.stack);
+
   res.status(500).json({
     status: 'failure',
     statusCode: 500,
     success: false,
     message: 'Internal Server Error!',
-    errors: err
-  })
-})
-
+    errors: err,
+  });
+});
 
 app.listen(PORT, () => {
-  console.log(`${serviceName} running on port: ${PORT}`)
-})
+  console.log(`${serviceName} running on port: ${PORT}`);
+});

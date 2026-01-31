@@ -2,12 +2,10 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ES6"],
-    "module": "commonjs",
-    "rootDir": "./src",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
     "types": ["node", "express"],
     "resolveJsonModule": true,
@@ -20,6 +18,6 @@
     "noImplicitAny": false,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "generated/**/*", "*.ts"],
   "exclude": ["node_modules"]
 }

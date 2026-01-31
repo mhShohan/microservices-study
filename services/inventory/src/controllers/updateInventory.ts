@@ -1,50 +1,49 @@
 import { Request, Response, NextFunction } from 'express';
-import { prisma } from '@/prisma'
-import { InventoryUpdateDTOSchema } from '@/schemas'
-import { ActionType } from '@prisma/client';
+import { prisma } from '@/prisma';
+import { InventoryUpdateDTOSchema } from '@/schemas';
+import { ActionType } from '../../generated/prisma/enums';
 
 const updateInventory = async (req: Request, res: Response, next: NextFunction) => {
   try {
-
     // check if inventory exists
-    const { id } = req.params
+    const { id } = req.params;
     const inventory = await prisma.inventory.findUnique({
-      where: { id: id }
-    })
+      where: { id: id },
+    });
 
     if (!inventory) {
       return res.status(404).json({
         status: 'failure',
         statusCode: 404,
         success: false,
-        message: 'Inventory not found!'
-      })
+        message: 'Inventory not found!',
+      });
     }
 
     // validate request body
-    const parsedBody = InventoryUpdateDTOSchema.safeParse(req.body)
+    const parsedBody = InventoryUpdateDTOSchema.safeParse(req.body);
     if (!parsedBody.success) {
       return res.status(400).json({
         status: 'failure',
         statusCode: 400,
         success: false,
         message: 'Invalid Request!',
-        errors: parsedBody.error.errors
-      })
+        errors: parsedBody.error.issues,
+      });
     }
 
     // find last history
     const lastHistory = await prisma.history.findFirst({
       where: { inventoryId: id },
-      orderBy: { createdAt: 'desc' }
-    })
+      orderBy: { createdAt: 'desc' },
+    });
 
     // calculate new quantity
     let newQuantity = inventory.quantity;
     if (parsedBody.data.actionType === ActionType.IN) {
-      newQuantity += parsedBody.data.quantity
+      newQuantity += parsedBody.data.quantity;
     } else {
-      newQuantity -= parsedBody.data.quantity
+      newQuantity -= parsedBody.data.quantity;
     }
 
     // update inventory
@@ -58,27 +57,20 @@ const updateInventory = async (req: Request, res: Response, next: NextFunction) 
             quantityChanged: parsedBody.data.quantity,
             lastQuantity: lastHistory?.newQuantity || 0,
             newQuantity: newQuantity,
-          }
-        }
+          },
+        },
       },
       select: {
         id: true,
         quantity: true,
-      }
-    })
+      },
+    });
 
     // send response
-    return res.status(200).json({
-      status: 'success',
-      statusCode: 200,
-      success: true,
-      message: 'Inventory updated successfully!',
-      data: updatedInventory
-    })
-
+    return res.status(200).json(updatedInventory);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
-export default updateInventory
+export default updateInventory;
