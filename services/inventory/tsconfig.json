@@ -3,7 +3,6 @@
     "target": "ESNext",
     "lib": ["ES6"],
     "module": "nodenext",
-    "rootDir": "./src",
     "moduleResolution": "nodenext",
     "paths": {
       "@/*": ["./src/*"]
@@ -19,6 +18,6 @@
     "noImplicitAny": false,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "generated/**/*", "*.ts"],
   "exclude": ["node_modules"]
 }
