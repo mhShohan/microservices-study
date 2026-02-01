@@ -27,25 +27,19 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
         sku: product.sku,
       });
 
-      console.log('inventory created', inventory.data.id);
+      console.log('inventory created', inventory.id);
 
       // update the product and store the inventory id
       await prisma.product.update({
         where: { id: product.id },
-        data: { inventoryId: inventory.data.id },
+        data: { inventoryId: inventory.id },
       });
 
       return res.status(200).json({
-        status: 'success',
-        statusCode: 200,
-        success: true,
-        message: 'Product fetched successfully!',
-        data: {
-          ...product,
-          inventoryId: inventory.id,
-          stock: inventory.stock || 0,
-          stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
-        },
+        ...product,
+        inventoryId: inventory.id,
+        stock: inventory.quantity || 0,
+        stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
       });
     }
 
@@ -55,16 +49,10 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
     );
 
     return res.status(200).json({
-      status: 'success',
-      statusCode: 200,
-      success: true,
-      message: 'Products fetched successfully!',
-      data: {
-        ...product,
-        inventoryId: inventory.data.id,
-        stock: inventory.data.stock || 0,
-        stockStatus: inventory.data.quantity > 0 ? 'in stock' : 'out of stock',
-      },
+      ...product,
+      inventoryId: inventory.id,
+      stock: inventory.quantity || 0,
+      stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
     });
   } catch (error) {
     next(error);
