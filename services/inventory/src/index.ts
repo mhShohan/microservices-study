@@ -23,22 +23,22 @@ const PORT = process.env.PORT || 4002;
 const serviceName = process.env.SERVICE_NAME || 'inventory-service';
 
 // allowedOrigins middleware
-// app.use((req, res, next) => {
-//   const allowedOrigins = [ 'http://localhost:8081', 'http://127.0.0.1:8081' ]
-//   const origin = req.headers.origin || ''
+app.use((req, res, next) => {
+  const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
+  const origin = req.headers.origin || '';
 
-//   if (allowedOrigins.includes(origin)) {
-//     res.setHeader('Access-Control-Allow-origin', origin)
-//     next()
-//   }
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    next();
+  }
 
-//   res.status(403).json({
-//     status: 'failure',
-//     statusCode: 403,
-//     success: false,
-//     message: 'Forbidden'
-//   })
-// })
+  res.status(403).json({
+    status: 'failure',
+    statusCode: 403,
+    success: false,
+    message: 'Forbidden',
+  });
+});
 
 // routes
 app.put('/inventories/:id', updateInventory as RequestHandler);

@@ -38,7 +38,7 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
       return res.status(200).json({
         ...product,
         inventoryId: inventory.id,
-        stock: inventory.stock || 0,
+        stock: inventory.quantity || 0,
         stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
       });
     }
@@ -51,7 +51,7 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
     return res.status(200).json({
       ...product,
       inventoryId: inventory.id,
-      stock: inventory.stock || 0,
+      stock: inventory.quantity || 0,
       stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
     });
   } catch (error) {
