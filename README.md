@@ -1,9 +1,12 @@
-# Microservices Practice - video (Day: 3.1) timestamp: 00.00.00
+# Microservices Study Project - R&D
 
 # CLI
 
-- docker ps
 - docker inspect container_name
+- docker inspect container_name | grep -i IPAddress
+- docker exec -it container_name bash
+- docker logs container_name
+- docker-compose up -d
 
 ### connect to docker container database
 
