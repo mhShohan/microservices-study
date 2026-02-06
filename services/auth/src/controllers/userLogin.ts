@@ -50,13 +50,6 @@ const userLogin = async (req: Request, res: Response, next: NextFunction) => {
     });
 
     if (!user) {
-      await createLoginHistory({
-        userId: 'Guest',
-        userAgent,
-        ipAddress: ipAddress,
-        attempt: 'FAILED',
-      });
-
       return res.status(401).json({
         status: 'failure',
         statusCode: 401,

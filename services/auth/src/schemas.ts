@@ -18,3 +18,8 @@ export type UserLoginDTO = z.infer<typeof UserLoginDTOSchema>;
 export const AccessTokenSchema = z.object({
   accessToken: z.string(),
 });
+
+export const EmailVerificationDTOSchema = z.object({
+  email: z.email(),
+  code: z.string(),
+});

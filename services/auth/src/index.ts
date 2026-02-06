@@ -2,7 +2,7 @@ import express, { Application, RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
-import { userLogin, userRegistration, verifyToken } from './controllers';
+import { userLogin, userRegistration, verifyEmail, verifyToken } from './controllers';
 
 const app: Application = express();
 dotenv.config();
@@ -37,6 +37,7 @@ const serviceName = process.env.SERVICE_NAME || 'Auth-Service';
 app.post('/auth/login', userLogin as RequestHandler);
 app.post('/auth/registration', userRegistration as RequestHandler);
 app.post('/auth/verify-token', verifyToken as RequestHandler);
+app.post('/auth/verify-email', verifyEmail as RequestHandler);
 
 // health route
 app.get('/health', (_req, res) => {
