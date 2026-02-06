@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Email {
+  id        String   @id @default(cuid())
+  sender    String
+  recipient String
+  subject   String
+  body      String
+  source    String
+  sentAt    DateTime @default(now())
+}

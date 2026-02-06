@@ -2,7 +2,7 @@ import express, { Application, RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
-import { userLogin, userRegistration, verifyEmail, verifyToken } from './controllers';
+import { getAllEmail, sendEmail } from './controllers';
 
 const app: Application = express();
 dotenv.config();
@@ -12,8 +12,8 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // environment variables
-const PORT = process.env.PORT || 4003;
-const serviceName = process.env.SERVICE_NAME || 'Auth-Service';
+const PORT = process.env.PORT || 4005;
+const serviceName = process.env.SERVICE_NAME || 'Email-Service';
 
 // allowedOrigins middleware
 // app.use((req, res, next) => {
@@ -34,10 +34,8 @@ const serviceName = process.env.SERVICE_NAME || 'Auth-Service';
 // });
 
 // routes will be here
-app.post('/auth/login', userLogin as RequestHandler);
-app.post('/auth/registration', userRegistration as RequestHandler);
-app.post('/auth/verify-token', verifyToken as RequestHandler);
-app.post('/auth/verify-email', verifyEmail as RequestHandler);
+app.post('/emails/send', sendEmail as RequestHandler);
+app.get('/emails', getAllEmail as RequestHandler);
 
 // health route
 app.get('/health', (_req, res) => {

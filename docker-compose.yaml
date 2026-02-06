@@ -28,7 +28,18 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - '5050:80'
-      - '5051:433'
+      - '5051:443'
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    restart: on-failure
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    volumes:
+      - mailhog:/var/lib/mailhog
 
 volumes:
   postgres:
+  mailhog:
