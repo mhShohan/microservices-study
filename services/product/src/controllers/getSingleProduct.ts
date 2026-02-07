@@ -22,10 +22,18 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
     // if product has no inventory
     if (product.inventoryId === null) {
       // create inventory for this product
-      const { data: inventory } = await axios.post(config.inventoryUrl + '/inventories', {
-        productId: product.id,
-        sku: product.sku,
-      });
+      const { data: inventory } = await axios.post(
+        config.inventoryUrl + '/inventories',
+        {
+          productId: product.id,
+          sku: product.sku,
+        },
+        {
+          headers: {
+            origin: 'http://localhost:8081',
+          },
+        },
+      );
 
       console.log('inventory created', inventory.id);
 
@@ -46,6 +54,11 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
     // if product has inventory
     const { data: inventory } = await axios.get(
       config.inventoryUrl + '/inventories/' + product.inventoryId,
+      {
+        headers: {
+          origin: 'http://localhost:8081',
+        },
+      },
     );
 
     return res.status(200).json({
@@ -55,6 +68,7 @@ const getSingleProducts = async (req: Request, res: Response, next: NextFunction
       stockStatus: inventory.quantity > 0 ? 'in stock' : 'out of stock',
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

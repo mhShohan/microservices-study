@@ -1,4 +1,4 @@
-import express, { Application, RequestHandler } from 'express';
+import express, { Application, Request, Response, NextFunction, RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -23,22 +23,23 @@ const PORT = process.env.PORT || 4002;
 const serviceName = process.env.SERVICE_NAME || 'inventory-service';
 
 // allowedOrigins middleware
-app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
-  const origin = req.headers.origin || '';
+// app.use((req, res, next): any => {
+//   const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
+//   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    next();
-  }
+//   if (allowedOrigins.includes(origin)) {
+//     res.setHeader('Access-Control-Allow-Origin', origin);
+//     next();
+//     return;
+//   }
 
-  res.status(403).json({
-    status: 'failure',
-    statusCode: 403,
-    success: false,
-    message: 'Forbidden',
-  });
-});
+//   return res.status(403).json({
+//     status: 'failure',
+//     statusCode: 403,
+//     success: false,
+//     message: 'Forbidden',
+//   });
+// });
 
 // routes
 app.put('/inventories/:id', updateInventory as RequestHandler);
