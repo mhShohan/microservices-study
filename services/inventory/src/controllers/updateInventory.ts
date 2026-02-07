@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { prisma } from '@/prisma';
 import { InventoryUpdateDTOSchema } from '@/schemas';
-import { ActionType } from '../../generated/prisma/enums';
+import { ActionType } from '../../generated/prisma';
 
 const updateInventory = async (req: Request, res: Response, next: NextFunction) => {
   try {

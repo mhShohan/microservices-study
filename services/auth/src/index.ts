@@ -35,7 +35,7 @@ const serviceName = process.env.SERVICE_NAME || 'Auth-Service';
 
 // routes will be here
 app.post('/auth/login', userLogin as RequestHandler);
-app.post('/auth/registration', userRegistration as RequestHandler);
+app.post('/auth/register', userRegistration as RequestHandler);
 app.post('/auth/verify-token', verifyToken as RequestHandler);
 app.post('/auth/verify-email', verifyEmail as RequestHandler);
 

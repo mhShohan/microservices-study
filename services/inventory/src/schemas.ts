@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ActionType } from '../generated/prisma/enums';
+import { ActionType } from '../generated/prisma';
 
 export const InventoryCreateDTOSchema = z.object({
   productId: z.string(),
