@@ -2,7 +2,7 @@ import express, { RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
-import { createProduct, getAllProducts, getSingleProduct } from './controllers';
+import { createProduct, getAllProducts, getSingleProduct, updateProduct } from './controllers';
 
 const app = express();
 dotenv.config();
@@ -36,6 +36,7 @@ const serviceName = process.env.SERVICE_NAME || 'product_service';
 
 // routes
 app.get('/products/:id', getSingleProduct as RequestHandler);
+app.put('/products/:id', updateProduct as RequestHandler);
 app.get('/products', getAllProducts as RequestHandler);
 app.post('/products', createProduct as RequestHandler);
 

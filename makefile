@@ -19,6 +19,9 @@ inventory:
 product:
 	cd services/product && yarn dev
 
+cart:
+	cd services/cart && yarn dev
+
 user:
 	cd services/user && yarn dev
 
