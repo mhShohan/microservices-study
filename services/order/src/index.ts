@@ -1,10 +1,10 @@
-import express, { RequestHandler } from 'express';
+import express, { Application, Request, Response, NextFunction, RequestHandler } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
-import { createProduct, getAllProducts, getSingleProduct, updateProduct } from './controllers';
+import { checkout, getOrderById, getOrders } from './controllers';
 
-const app = express();
+const app: Application = express();
 dotenv.config();
 
 app.use(express.json());
@@ -12,11 +12,11 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // environment variables
-const PORT = process.env.PORT || 4001;
-const serviceName = process.env.SERVICE_NAME || 'product_service';
+const PORT = process.env.PORT || 4007;
+const serviceName = process.env.SERVICE_NAME || 'Order-Service';
 
 // allowedOrigins middleware
-// app.use((req, res, next) => {
+// app.use((req, res, next): any => {
 //   const allowedOrigins = ['http://localhost:8081', 'http://127.0.0.1:8081'];
 //   const origin = req.headers.origin || '';
 
@@ -35,10 +35,9 @@ const serviceName = process.env.SERVICE_NAME || 'product_service';
 // });
 
 // routes
-app.get('/products/:id', getSingleProduct as RequestHandler);
-app.put('/products/:id', updateProduct as RequestHandler);
-app.get('/products', getAllProducts as RequestHandler);
-app.post('/products', createProduct as RequestHandler);
+app.post('/orders/checkout', checkout as RequestHandler);
+app.get('/orders/:id', getOrderById as RequestHandler);
+app.get('/orders', getOrders as RequestHandler);
 
 // health route
 app.get('/health', (_req, res) => {
@@ -62,6 +61,8 @@ app.use((_req, res) => {
 
 // error handler
 app.use((err, _req, res, _next) => {
+  console.log(err.stack);
+
   res.status(500).json({
     status: 'failure',
     statusCode: 500,

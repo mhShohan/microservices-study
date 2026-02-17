@@ -1,0 +1,826 @@
+{
+  "info": {
+    "_postman_id": "af5ddd85-53b5-480f-8d5a-2727347e0302",
+    "name": "microservices-study-sl",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "id": "c5df12f7-0974-4dad-b156-5c86d7e716ff",
+      "name": "API gateway",
+      "item": [
+        {
+          "id": "39f74ccc-f23c-44a6-b6a7-09555859ba1c",
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"book\",\n  \"sku\": \"123\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/products",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "protocol": "http"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "3805e4b5-316c-4968-b394-293b26758c3b",
+          "name": "Get Inventory details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/inventories/cmlc40vns0000tbp3lyjac19y/details",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "inventories",
+                "cmlc40vns0000tbp3lyjac19y",
+                "details"
+              ],
+              "protocol": "http"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "b4b5f3bb-6fda-44c9-a4ec-e37110a09955",
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/products",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "157cba04-e487-4823-a435-17c62ee5e229",
+          "name": "Get Single Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/products/cmlc3hgzu0000wop3bxu481f4",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "products",
+                "cmlc3hgzu0000wop3bxu481f4"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "ef57def5-4d9b-49ff-acc0-7e6e0c2c885d",
+          "name": "Get single user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/users/cmlb4uc7l00002cp366n1rs3d",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "users",
+                "cmlb4uc7l00002cp366n1rs3d"
+              ],
+              "protocol": "http",
+              "query": [
+                {
+                  "key": "field",
+                  "value": "authUserId",
+                  "disabled": false
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "f71dcf4f-75d3-46ef-b3f2-4f309055eb80",
+          "name": "Update Inventory",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 15,\n  \"actionType\": \"IN\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/inventories/cmlc40vns0000tbp3lyjac19y",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "api",
+                "inventories",
+                "cmlc40vns0000tbp3lyjac19y"
+              ],
+              "protocol": "http"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "ac8cbb17-ec97-4cd8-bc42-e69394c92c46",
+      "name": "Auth Services",
+      "item": [
+        {
+          "id": "0019afcd-23af-4f4c-9bc5-f60390bc5d33",
+          "name": "user login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"MH Shohan\",\n  \"email\": \"test@example.com\",\n  \"password\": \"pass1234\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4003/auth/login",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "67e4c9a1-7052-4a6d-a4a5-0f39151063ef",
+          "name": "user registration",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"MH Shohan\",\n  \"email\": \"test@example.com\",\n  \"password\": \"pass1234\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4003/auth/registration",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "auth",
+                "registration"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "d57e6c3c-666a-46a0-b650-db866690ef03",
+          "name": "Verify Email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"code\": \"54651\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4003/auth/verify-email",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "auth",
+                "verify-email"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "d230730a-ef4c-4ee2-8db7-484ad016e811",
+          "name": "Verify Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWxiNHVjN2wwMDAwMmNwMzY2bjFyczNkIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6Ik1IIFNob2hhbiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzcwMzk3NTk2LCJleHAiOjE3NzA0MDQ3OTZ9.qOA4ejjCWOADHMIzBJVdAz3DFvHO-1w31ECysSRJYPk\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4003/auth/verify-token",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "auth",
+                "verify-token"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "695abddb-de66-49a4-abc3-52d77404c719",
+      "name": "Cart Services",
+      "item": [
+        {
+          "id": "d63041a9-e69e-4244-90d4-d20e20681474",
+          "name": "Add to cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-cart-session-id",
+                "value": "59a74a8d-5ebb-4827-acfa-5c787065ee4b",
+                "type": "text",
+                "disabled": false,
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"cmlc3hgzu0000wop3bxu481f4\",\n  \"inventoryId\": \"cmlc40vns0000tbp3lyjac19y\",\n  \"quantity\": 1\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4006/cart/add-to-cart",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "cart",
+                "add-to-cart"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "8b91aad6-4dd7-463f-8a17-dda11c4b26f0",
+          "name": "Get cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-cart-session-id",
+                "value": "c9abc1f6-f4af-4959-8352-7cd63b9b3438",
+                "type": "text",
+                "disabled": false,
+                "description": ""
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4006/cart",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "cart"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "4f06d825-7a41-4b80-8d7f-7b9c2ee0eb0b",
+      "name": "Inventroy",
+      "item": [
+        {
+          "id": "24ea9281-15d0-4f20-8fab-f768d33d0022",
+          "name": "create inventory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  productId: \"test\",\n  sku: \"test\",\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4002/inventories",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "5df3a269-b6d2-47fb-b54e-366b20f6dc40",
+          "name": "delete single inventories",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/inventories/cml2ey8z1000057p34472fa3n",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories",
+                "cml2ey8z1000057p34472fa3n"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "40266788-a473-4a8c-9320-a90f045f0f5a",
+          "name": "get all inventories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/inventories",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "be51db77-ae01-46d7-b293-ebe72bca7609",
+          "name": "get single inventories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/inventories/cmlc40vns0000tbp3lyjac19y",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories",
+                "cmlc40vns0000tbp3lyjac19y"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "62eeba93-b32e-4063-bb06-1e852cf3044e",
+          "name": "get single inventories details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/inventories/cmlc40vns0000tbp3lyjac19y/details",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories",
+                "cmlc40vns0000tbp3lyjac19y",
+                "details"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "2e7ad412-d2a9-448a-a69e-d204fffc86a2",
+          "name": "update inventories",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 10,\n  \"actionType\": \"IN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4002/inventories/cml2hhw170007htp335mg3av9",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "inventories",
+                "cml2hhw170007htp335mg3av9"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "a105ed52-88f3-4a0f-a338-13d53994ab22",
+      "name": "Mail services",
+      "item": [
+        {
+          "id": "23db2dbe-dd13-486d-bbef-420ca04b79f6",
+          "name": "Get all Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4005/emails",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "emails"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "e9d36914-b300-4888-8423-87eae8167174",
+      "name": "Order Services",
+      "item": [
+        {
+          "id": "17043ecc-6a14-4c77-b1d6-aee312396172",
+          "name": "checkout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-cart-session-id",
+                "value": "",
+                "type": "text",
+                "disabled": true,
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"cmlb4ucki0000fdp3tfd5fj5d\",\n  \"userEmail\": \"test@example.com\",\n  \"userName\": \"MH Shohan\",\n  \"cartSessionId\": \"02de26b2-0803-47df-9b1e-a9a9f032b71c\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4007/orders/checkout",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "orders",
+                "checkout"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "4ac9390d-28d8-4ccc-b88a-d29cdbf8c375",
+          "name": "Get all orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4007/orders",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "orders"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "57bd5f4f-02e1-4bf3-a579-0ed7369e2661",
+          "name": "Get order by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4007/orders/cmlqt9fzb0000pip3wy38bj8r",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "orders",
+                "cmlqt9fzb0000pip3wy38bj8r"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "06760f76-62f8-4734-9d2f-19b3a923b1c1",
+      "name": "Product services",
+      "item": [
+        {
+          "id": "5c2364ff-b61b-442d-9c46-aac8ad92247a",
+          "name": "Create products",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"book3\",\n  \"sku\": \"bk__3\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4001/products",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "products"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "7bc39fe8-52d9-4789-a762-67e8e05bd16f",
+          "name": "Get all products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4001/products",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "products"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "9eb8e4ad-beb7-4197-96ed-5f44a93d4266",
+          "name": "Get single product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4001/products/cmlc3hgzu0000wop3bxu481f4",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "products",
+                "cmlc3hgzu0000wop3bxu481f4"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        {
+          "id": "7bfb9099-7a71-4d17-b2cc-ff08c032b668",
+          "name": "update product",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 250\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4001/products/cmlc3hgzu0000wop3bxu481f4",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "products",
+                "cmlc3hgzu0000wop3bxu481f4"
+              ],
+              "protocol": "http"
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    },
+    {
+      "id": "6886fa8e-1961-4a32-a51f-32bc937712b6",
+      "name": "user services",
+      "item": [
+        {
+          "id": "f342a17a-5d9e-4da4-8b2c-b1eb4b521638",
+          "name": "Get user by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4004/users/cmlb4uc7l00002cp366n1rs3d",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "users",
+                "cmlb4uc7l00002cp366n1rs3d"
+              ],
+              "protocol": "http",
+              "query": [
+                {
+                  "key": "field",
+                  "value": "authUserId",
+                  "disabled": false,
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        }
+      ],
+      "variable": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "9cc7224d-56ea-43a6-b037-811286b9323b",
+      "key": "token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWxiNHVjN2wwMDAwMmNwMzY2bjFyczNkIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6Ik1IIFNob2hhbiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzcwNDU4NTIwLCJleHAiOjE3NzA0NjU3MjB9.4YrLPE2bRDflQV5HgmJAh7l_LxcGIwD-4MlgSGsVrBY",
+      "type": "default"
+    }
+  ]
+}

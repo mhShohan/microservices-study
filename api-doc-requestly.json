@@ -1,0 +1,1242 @@
+{
+  "schema_version": "1.0.0",
+  "records": [
+    {
+      "name": "microservices-study-sl",
+      "type": "collection",
+      "data": {
+        "variables": {
+          "token": {
+            "localValue": "",
+            "syncValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWxiNHVjN2wwMDAwMmNwMzY2bjFyczNkIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6Ik1IIFNob2hhbiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzcwNDU4NTIwLCJleHAiOjE3NzA0NjU3MjB9.4YrLPE2bRDflQV5HgmJAh7l_LxcGIwD-4MlgSGsVrBY",
+            "type": "string",
+            "id": 0
+          }
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": [
+          "token"
+        ]
+      },
+      "deleted": false,
+      "collectionId": "",
+      "id": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "description": ""
+    },
+    {
+      "name": "API gateway",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "description": ""
+    },
+    {
+      "name": "Create Product",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/products",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "application/json",
+          "pathVariables": [],
+          "body": "{\n  \"name\": \"book\",\n  \"sku\": \"123\"\n}\n"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "BEARER_TOKEN",
+          "authConfigStore": {
+            "BEARER_TOKEN": {
+              "bearer": "{{token}}"
+            }
+          }
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "description": "",
+      "id": "8f908eee-79e9-475e-9dae-e5cb085bc770"
+    },
+    {
+      "name": "Get Inventory details",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/inventories/cmlc40vns0000tbp3lyjac19y/details",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "BEARER_TOKEN",
+          "authConfigStore": {
+            "BEARER_TOKEN": {
+              "bearer": "{{token}}"
+            }
+          }
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "id": "82832a29-2f8d-4fa5-a982-b5553c7b1d5f",
+      "description": ""
+    },
+    {
+      "name": "Get Products",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/products",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {
+            "BEARER_TOKEN": {
+              "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWxiNHVjN2wwMDAwMmNwMzY2bjFyczNkIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6Ik1IIFNob2hhbiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzcwNDU3MTUxLCJleHAiOjE3NzA0NjQzNTF9.I6jAbjCTPGGZxsmdVrBdg-sbBh0xJlyKwfaiE5pyk9Y"
+            }
+          }
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "id": "09535598-6e48-4b2a-8188-ca82b76da0b4",
+      "description": ""
+    },
+    {
+      "name": "Get Single Product",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/products/cmlc3hgzu0000wop3bxu481f4",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "description": "",
+      "id": "d5674c82-00bb-4a1a-b099-9aa3e61a9fc0"
+    },
+    {
+      "name": "Get single user",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/users/cmlb4uc7l00002cp366n1rs3d",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [
+            {
+              "id": 0.11360593203686598,
+              "key": "field",
+              "value": "authUserId",
+              "isEnabled": true
+            }
+          ],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "BEARER_TOKEN",
+          "authConfigStore": {
+            "BEARER_TOKEN": {
+              "bearer": "{{token}}"
+            }
+          }
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "description": "",
+      "id": "c18d8dec-1b26-43e8-94f5-f1b693033e69"
+    },
+    {
+      "name": "Update Inventory",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:8081/api/inventories/cmlc40vns0000tbp3lyjac19y",
+          "method": "PUT",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "application/json",
+          "pathVariables": [],
+          "body": "{\n  \"quantity\": 15,\n  \"actionType\": \"IN\"\n}\n"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "BEARER_TOKEN",
+          "authConfigStore": {
+            "BEARER_TOKEN": {
+              "bearer": "{{token}}"
+            }
+          }
+        }
+      },
+      "deleted": false,
+      "collectionId": "b784d6bf-3aa4-4e1c-8afd-1b4eff263127",
+      "description": "",
+      "id": "5d141564-469e-4afd-bb2f-cd0f73fe0bfd"
+    },
+    {
+      "name": "Auth Services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "f5815362-af11-4250-9d0d-e535266e76ed",
+      "description": ""
+    },
+    {
+      "name": "user login",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4003/auth/login",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "body": "{\n  \"name\": \"MH Shohan\",\n  \"email\": \"test@example.com\",\n  \"password\": \"pass1234\"\n}\n",
+          "contentType": "application/json",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "f5815362-af11-4250-9d0d-e535266e76ed",
+      "description": "",
+      "id": "8bf68869-0e8c-47a8-bef1-ce2650add771"
+    },
+    {
+      "name": "user registration",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4003/auth/registration",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "body": "{\n  \"name\": \"MH Shohan\",\n  \"email\": \"test@example.com\",\n  \"password\": \"pass1234\"\n}\n",
+          "contentType": "application/json",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "f5815362-af11-4250-9d0d-e535266e76ed",
+      "id": "4e6a6cec-a33d-43a4-9400-5643d7641262",
+      "description": ""
+    },
+    {
+      "name": "Verify Email",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4003/auth/verify-email",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "body": "{\n  \"email\": \"test@example.com\",\n  \"code\": \"54651\"\n}\n",
+          "contentType": "application/json",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "f5815362-af11-4250-9d0d-e535266e76ed",
+      "description": "",
+      "id": "53d264c2-e37a-41fc-a7bb-e506ca291209"
+    },
+    {
+      "name": "Verify Token",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4003/auth/verify-token",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "body": "{\n  \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWxiNHVjN2wwMDAwMmNwMzY2bjFyczNkIiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6Ik1IIFNob2hhbiIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzcwMzk3NTk2LCJleHAiOjE3NzA0MDQ3OTZ9.qOA4ejjCWOADHMIzBJVdAz3DFvHO-1w31ECysSRJYPk\"\n}\n",
+          "contentType": "application/json",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "f5815362-af11-4250-9d0d-e535266e76ed",
+      "description": "",
+      "id": "2dd6085d-31a8-431a-b240-ea5223788e36"
+    },
+    {
+      "name": "Cart Services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "fa2fc71a-c4af-48ba-8000-a85aa13d0ad9",
+      "description": ""
+    },
+    {
+      "name": "Add to cart",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4006/cart/add-to-cart",
+          "method": "POST",
+          "headers": [
+            {
+              "id": 1771168486274,
+              "key": "x-cart-session-id",
+              "value": "59a74a8d-5ebb-4827-acfa-5c787065ee4b",
+              "isEnabled": true,
+              "description": "",
+              "dataType": "string"
+            }
+          ],
+          "queryParams": [],
+          "body": "{\n  \"productId\": \"cmlc3hgzu0000wop3bxu481f4\",\n  \"inventoryId\": \"cmlc40vns0000tbp3lyjac19y\",\n  \"quantity\": 1\n}\n",
+          "contentType": "application/json"
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": {
+          "body": "{\"status\":\"success\",\"statusCode\":200,\"success\":true,\"message\":\"Item added to cart successfully\",\"data\":{\"cartSessionId\":\"c9abc1f6-f4af-4959-8352-7cd63b9b3438\",\"item\":{\"productId\":\"cmlc3hgzu0000wop3bxu481f4\",\"inventoryId\":\"cmlc40vns0000tbp3lyjac19y\",\"quantity\":5}}}",
+          "time": 110.70000000298023,
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Resource-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Origin-Agent-Cluster",
+              "value": "?1"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-DNS-Prefetch-Control",
+              "value": "off"
+            },
+            {
+              "key": "X-Download-Options",
+              "value": "noopen"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Permitted-Cross-Domain-Policies",
+              "value": "none"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "X-Cart-Session-Id",
+              "value": "c9abc1f6-f4af-4959-8352-7cd63b9b3438"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "264"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"108-YNKWT5KX5KxVndEQUE7gzhZVhto\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 17 Feb 2026 16:16:35 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "status": 200,
+          "statusText": "OK",
+          "redirectedUrl": ""
+        },
+        "testResults": []
+      },
+      "deleted": false,
+      "collectionId": "fa2fc71a-c4af-48ba-8000-a85aa13d0ad9",
+      "id": "35354004-ca93-4895-9c28-077f8345e329",
+      "description": ""
+    },
+    {
+      "name": "Get cart",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4006/cart",
+          "method": "GET",
+          "headers": [
+            {
+              "id": 1771168486283,
+              "key": "x-cart-session-id",
+              "value": "c9abc1f6-f4af-4959-8352-7cd63b9b3438",
+              "isEnabled": true,
+              "description": "",
+              "dataType": "string"
+            }
+          ],
+          "queryParams": [],
+          "contentType": "text/plain"
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": {
+          "body": "{\"status\":\"success\",\"statusCode\":200,\"success\":true,\"message\":\"Cart retrieved successfully\",\"data\":[{\"productId\":\"cmlc3hgzu0000wop3bxu481f4\",\"inventoryId\":\"cmlc40vns0000tbp3lyjac19y\",\"quantity\":5}]}",
+          "time": 11.5,
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Resource-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Origin-Agent-Cluster",
+              "value": "?1"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "no-referrer"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-DNS-Prefetch-Control",
+              "value": "off"
+            },
+            {
+              "key": "X-Download-Options",
+              "value": "noopen"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "key": "X-Permitted-Cross-Domain-Policies",
+              "value": "none"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "198"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"c6-GURydZ1xbVNcq/CRVJrnt7cDtMg\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 17 Feb 2026 16:16:48 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "status": 200,
+          "statusText": "OK",
+          "redirectedUrl": ""
+        },
+        "testResults": []
+      },
+      "deleted": false,
+      "collectionId": "fa2fc71a-c4af-48ba-8000-a85aa13d0ad9",
+      "description": "",
+      "id": "d125ec60-8f81-4350-a708-6d8c5e6af156"
+    },
+    {
+      "name": "Inventroy",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": ""
+    },
+    {
+      "name": "create inventory",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "body": "{\n  productId: \"test\",\n  sku: \"test\",\n}\n",
+          "contentType": "application/json",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": "",
+      "id": "35e6b031-8aad-4087-bd5f-36a75149bdea"
+    },
+    {
+      "name": "delete single inventories",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories/cml2ey8z1000057p34472fa3n",
+          "method": "DELETE",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": "",
+      "id": "238befa1-b045-4569-8c10-d28c7d8011dc"
+    },
+    {
+      "name": "get all inventories",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "id": "3271ce52-ccd8-4e73-876c-a79d2da8391b",
+      "description": ""
+    },
+    {
+      "name": "get single inventories",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories/cmlc40vns0000tbp3lyjac19y",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": null
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": "",
+      "id": "1954d5b5-e88f-43db-86ca-7041548802ae"
+    },
+    {
+      "name": "get single inventories details",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories/cmlc40vns0000tbp3lyjac19y/details",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": null
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": "",
+      "id": "b9872494-9156-476f-b675-4cbe1ea094bb"
+    },
+    {
+      "name": "update inventories",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4002/inventories/cml2hhw170007htp335mg3av9",
+          "method": "PUT",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "application/json",
+          "pathVariables": [],
+          "body": "{\n  \"quantity\": 10,\n  \"actionType\": \"IN\"\n}"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "fe3537cc-34a9-441e-a20c-d94927958e8d",
+      "description": "",
+      "id": "376b7e5d-00cf-4cf1-aab5-d89ee6f97c35"
+    },
+    {
+      "name": "Mail services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "bca70d26-e772-46e1-af9d-db55ecc9ba8a",
+      "description": ""
+    },
+    {
+      "name": "Get all Email",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4005/emails",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "bca70d26-e772-46e1-af9d-db55ecc9ba8a",
+      "id": "0ac810b9-89fa-408d-9b5c-1472aed90a30",
+      "description": ""
+    },
+    {
+      "name": "Order Services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "44be4342-dbe3-44c5-9706-137b98218f31",
+      "description": ""
+    },
+    {
+      "name": "checkout",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4007/orders/checkout",
+          "method": "POST",
+          "headers": [
+            {
+              "id": 1771345026685,
+              "key": "x-cart-session-id",
+              "value": "",
+              "isEnabled": false,
+              "description": "",
+              "dataType": "string"
+            }
+          ],
+          "queryParams": [],
+          "body": "{\n  \"userId\": \"cmlb4ucki0000fdp3tfd5fj5d\",\n  \"userEmail\": \"test@example.com\",\n  \"userName\": \"MH Shohan\",\n  \"cartSessionId\": \"02de26b2-0803-47df-9b1e-a9a9f032b71c\"\n}\n",
+          "contentType": "application/json"
+        },
+        "response": {
+          "body": "{\"id\":\"cmlqtdplk0000kip3i9saptjh\",\"userId\":\"cmlb4ucki0000fdp3tfd5fj5d\",\"userName\":\"MH Shohan\",\"userEmail\":\"test@example.com\",\"subTotal\":250,\"tax\":25,\"grandTotal\":275,\"status\":\"PENDING\",\"createdAt\":\"2026-02-17T16:25:08.294Z\",\"updatedAt\":\"2026-02-17T16:25:08.294Z\"}",
+          "time": 745.8000000044703,
+          "headers": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "263"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"107-4kT6BhL5gHXOQAEcIPcsNRUMh7E\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 17 Feb 2026 16:25:08 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "status": 201,
+          "statusText": "Created",
+          "redirectedUrl": ""
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "testResults": []
+      },
+      "deleted": false,
+      "collectionId": "44be4342-dbe3-44c5-9706-137b98218f31",
+      "rank": "auntit17713443767211",
+      "id": "8ff6383d-3b23-4ea5-b1bd-541000d13ff4",
+      "description": ""
+    },
+    {
+      "name": "Get all orders",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4007/orders",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "44be4342-dbe3-44c5-9706-137b98218f31",
+      "rank": "av",
+      "description": "",
+      "id": "5265fca4-ad76-4851-aaca-9e5e073ce217"
+    },
+    {
+      "name": "Get order by id",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4007/orders/cmlqt9fzb0000pip3wy38bj8r",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "44be4342-dbe3-44c5-9706-137b98218f31",
+      "rank": "aw",
+      "description": "",
+      "id": "2f1a0e1a-9fdc-4f11-a89d-eb1f4b9163c9"
+    },
+    {
+      "name": "Product services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "7f60c48a-86b2-49c5-8612-261f9ab628fe",
+      "description": ""
+    },
+    {
+      "name": "Create products",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4001/products",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "application/json",
+          "pathVariables": [],
+          "body": "{\n  \"name\":\"book3\",\n  \"sku\": \"bk__3\"\n}"
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "7f60c48a-86b2-49c5-8612-261f9ab628fe",
+      "description": "",
+      "id": "4932484d-7f11-4d0f-96af-20ff46808b63"
+    },
+    {
+      "name": "Get all products",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4001/products",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "7f60c48a-86b2-49c5-8612-261f9ab628fe",
+      "id": "d473e72e-1a6e-43b3-b739-a25073a292dc",
+      "description": ""
+    },
+    {
+      "name": "Get single product",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4001/products/cmlc3hgzu0000wop3bxu481f4",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": {
+          "body": "{\"id\":\"cmlc3hgzu0000wop3bxu481f4\",\"sku\":\"123\",\"inventoryId\":\"cmlc40vns0000tbp3lyjac19y\",\"name\":\"book\",\"description\":null,\"price\":250,\"status\":\"DRAFT\",\"createdAt\":\"2026-02-07T09:11:27.306Z\",\"updatedAt\":\"2026-02-15T17:51:21.528Z\",\"stock\":8,\"stockStatus\":\"in stock\"}",
+          "time": 412.8999999985099,
+          "headers": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "263"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"107-DofL9rFOg1TbtYsdII6/WtQhA9Y\""
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 17 Feb 2026 16:15:27 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "status": 200,
+          "statusText": "OK",
+          "redirectedUrl": ""
+        },
+        "testResults": []
+      },
+      "deleted": false,
+      "collectionId": "7f60c48a-86b2-49c5-8612-261f9ab628fe",
+      "description": "",
+      "id": "d88ddf59-a4ec-4040-927a-3a02cbf140a9"
+    },
+    {
+      "name": "update product",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4001/products/cmlc3hgzu0000wop3bxu481f4",
+          "method": "PUT",
+          "headers": [],
+          "queryParams": [],
+          "contentType": "application/json",
+          "pathVariables": [],
+          "body": "{\n  \"price\": 250\n}\n"
+        },
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "response": null
+      },
+      "deleted": false,
+      "collectionId": "7f60c48a-86b2-49c5-8612-261f9ab628fe",
+      "description": "",
+      "id": "7b3f2170-18ab-43a9-ad72-0461c01bde32"
+    },
+    {
+      "name": "user services",
+      "type": "collection",
+      "data": {
+        "variables": {},
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        },
+        "variablesOrder": []
+      },
+      "deleted": false,
+      "collectionId": "878d33a7-8db4-4d33-a41e-3de24577ef63",
+      "id": "ed6a9727-d80f-4ae7-876c-634b6cf0e15f",
+      "description": ""
+    },
+    {
+      "name": "Get user by ID",
+      "type": "api",
+      "data": {
+        "type": "http",
+        "request": {
+          "url": "http://localhost:4004/users/cmlb4uc7l00002cp366n1rs3d",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [
+            {
+              "id": 1770397400632,
+              "key": "field",
+              "value": "authUserId",
+              "isEnabled": true,
+              "description": "",
+              "dataType": "string"
+            }
+          ],
+          "contentType": "text/plain",
+          "pathVariables": []
+        },
+        "response": null,
+        "scripts": {
+          "preRequest": "",
+          "postResponse": ""
+        },
+        "auth": {
+          "currentAuthType": "INHERIT",
+          "authConfigStore": {}
+        }
+      },
+      "deleted": false,
+      "collectionId": "ed6a9727-d80f-4ae7-876c-634b6cf0e15f",
+      "id": "8de0491a-e368-43df-99b3-1ab3a4dfbc86",
+      "description": ""
+    }
+  ]
+}
