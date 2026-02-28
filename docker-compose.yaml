@@ -57,7 +57,23 @@ services:
     environment:
       - REDIS_ARGS=--save 900 1
 
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    restart: on-failure
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    healthcheck:
+      test: ['CMD', 'rabbitmqctl', 'status']
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+
 volumes:
   postgres:
   mailhog:
   redis-stack:
+  rabbitmq:

@@ -1,5 +1,6 @@
 import { CART_SERVICE_URL, EMAIL_SERVICE_URL, PRODUCT_SERVICE_URL } from '@/config';
 import { prisma } from '@/prisma';
+import sendToQueue from '@/queue';
 import { cartItemSchema, orderSchema } from '@/schemas';
 import axios from 'axios';
 import { NextFunction, Request, Response } from 'express';
@@ -83,19 +84,23 @@ const checkout = async (req: Request, res: Response, next: NextFunction) => {
     });
 
     // clear cart in cart service
-    await axios.delete(`${CART_SERVICE_URL}/cart/clear-cart`, {
-      headers: {
-        'x-cart-session-id': data.cartSessionId,
-      },
-    });
+    // await axios.delete(`${CART_SERVICE_URL}/cart/clear-cart`, {
+    //   headers: {
+    //     'x-cart-session-id': data.cartSessionId,
+    //   },
+    // });
 
     // send email
-    await axios.post(`${EMAIL_SERVICE_URL}/emails/send`, {
-      recipient: data.userEmail,
-      subject: 'Order Confirmation',
-      body: `Your order has been successfully placed. You can now view your order details in your account. Order ID: ${order.id} Total: $${grandTotal.toFixed(2)}`,
-      source: 'order-confirmation',
-    });
+    // await axios.post(`${EMAIL_SERVICE_URL}/emails/send`, {
+    //   recipient: data.userEmail,
+    //   subject: 'Order Confirmation',
+    //   body: `Your order has been successfully placed. You can now view your order details in your account. Order ID: ${order.id} Total: $${grandTotal.toFixed(2)}`,
+    //   source: 'order-confirmation',
+    // });
+
+    // send to queue
+    sendToQueue('send_email', JSON.stringify(order));
+    sendToQueue('clear_cart', JSON.stringify({ cartSessionId: data.cartSessionId }));
 
     return res.status(201).json(order);
   } catch (error) {
