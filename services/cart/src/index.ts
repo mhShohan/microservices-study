@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { addToCart, clearMyCart, getMyCart } from './controllers';
 import './events/onKeyExpires';
+import './receiver';
 
 const app = express();
 dotenv.config();

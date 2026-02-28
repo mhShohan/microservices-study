@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import cors from 'cors';
 import { getAllEmail, sendEmail } from './controllers';
+import './receiver';
 
 const app: Application = express();
 dotenv.config();
